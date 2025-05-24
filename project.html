@@ -1,0 +1,36 @@
+<<!DOCTYPE html>
+<html lang="en" ng-app="chatApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat Interface Mockup</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="ChatController" style="margin:0; padding:0; background:#ece5dd; height:100vh; display:flex; justify-content:center; align-items:center;">
+
+  <div style="width:360px; background:#fff; border:2px solid #ccc; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); display:flex; flex-direction:column;">
+
+    <!-- Header -->
+    <div style="background:#075e54; color:#fff; padding:10px; border-top-left-radius:10px; border-top-right-radius:10px; text-align:center;">
+      <h2 style="margin:0; font-size:18px;">Chat Interface</h2>
+    </div>
+
+    <!-- Chat body -->
+    <div style="flex:1; padding:15px; background:#f0f0f0; overflow-y:auto; height:300px;">
+      <div ng-repeat="message in messages">
+        <div ng-style="message.sent ? sentStyle : receivedStyle" style="max-width:70%; padding:10px; margin:8px 0; border-radius:15px; word-wrap:break-word; clear:both;">
+          {{ message.text }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat footer -->
+    <div style="display:flex; padding:10px; border-top:1px solid #ddd; background:#f9f9f9;">
+      <input type="text" ng-model="newMessage" placeholder="Type a message..." style="flex:1; padding:10px; border:1px solid #ccc; border-radius:20px; margin-right:10px; outline:none;">
+      <button ng-click="sendMessage()" style="padding:10px 15px; background:#075e54; color:#fff; border:none; border-radius:20px; cursor:pointer;">Send</button>
+    </div>
+
+  </div>
+
+</body>
+</html>
